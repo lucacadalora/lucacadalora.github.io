@@ -1,0 +1,228 @@
+---
+layout: compress
+---
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css" />
+    <!-- JS -->
+    <script src="{{ site.url }}/assets/js/modernizr-3.3.1.custom.min.js"></script>
+</head>
+<body class="post-template">
+    <div class="site-wrapper">
+
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+            <div class="site-nav-left">
+                <ul class="nav">
+                    {% if page.projetc != true %}
+                    <li class="nav-home" role="presentation"><a href="{{ site.url }}/">Home</a></li>
+                    <li class="nav-home" role="presentation"><a href="{{ site.url }}/projects/">Projects</a></li>
+                    <li class="nav-home" role="presentation"><a href="{{ site.url }}/blog/">Blog</a></li>
+                    {% else %}
+                    <li class="nav-home" role="presentation"><a href="{{ site.url }}/blog/">Home</a></li>
+                    {% endif %}
+                    <!--<li class="nav-home" role="presentation"><a href="{{ site.url }}/tags/">Tags</a></li>-->
+                    <li class="nav-about" role="presentation"><a href="{{ site.url }}/about/">About</a></li>
+                </ul>
+            </div>
+            <div class="site-nav-right">
+                <div class="social-links">
+                    {% if site.instagram %}
+                        <a class="social-btn-link" href="http://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-instagram"></i></a>
+                    {% endif %}
+                    {% if site.linkedin %}
+                        <a class="social-btn-link" href="http://linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i></a>
+                    {% endif %}
+                    {% if site.github-url %}
+                        <a class="social-btn-link" href="http://github.com/{{ site.github-url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a>
+                    {% endif %}
+                    {% if site.facebook %}
+                        <a class="social-btn-link" href="http://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i></a>
+                    {% endif %}
+                    {% if site.twitter %}
+                        <a class="social-btn-link" href="http://twitter.com/{{ site.twitter }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-twitter-square"></i></a>
+                    {% endif %}
+                    {% if site.stackoverflow %}
+                        <a class="social-btn-link" href="http://stackoverflow.com/users/{{ site.stackoverflow }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-stack-overflow"></i></a>
+                    {% endif %}
+                    {% if site.youtube %}
+                        <a class="social-btn-link" href="https://youtube.com/user/{{ site.youtube }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube-square"></i></a>
+                    {% endif %}
+                    {% if site.youtube-channel %}
+                        <a class="social-btn-link" href="https://youtube.com/channel/{{ site.youtube-channel }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-youtube"></i></a>
+                    {% endif %}
+                    {% if site.email %}
+                        <a class="social-btn-link" href="mailto:{{ site.email }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-envelope-square"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <article class="post-full post tag-getting-started ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta" style="font-size: 15px; font-style: italic; font-weight: 400;">
+                    <time class="post-full-meta-date">{{ page.date | date_to_string }}</time>
+                    {% if page.category %}
+                    <span class="date-divider">/</span> 
+                    <a class="nonanimated-a" href="{{ site.url }}/tags/">
+                        {{ page.category }}
+                    </a>
+                    {% else %}{% endif %}
+                </section>
+                <h1 class="post-full-title">{{ page.title }}</h1>
+            </header>
+
+            {% if page.feature %}
+                <figure class="post-full-image" style="background-image: url({{ page.feature }})"></figure>
+            {% else %}
+                <figure class="post-full-image" style="background-color: #bbb"></figure>
+            {% endif %}
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    {{ content }}
+                </div>
+                <div class="entry-meta">
+                    {% include meta.html %}
+                </div>
+            </section>
+            
+            {% if page.author %}
+            <footer class="post-full-footer">
+                <section class="author-card">
+                    <img class="author-profile-image" src="{{ site.url }}/assets/img/author/{{ page.author }}" alt="{{ page.author }}" />
+                    <section class="author-card-content">
+                        <h4 class="author-card-name">
+                            {% if page.author == "Fathoni" %}
+                            <a href="{{ site.url }}/about/">{{ page.author }}</a>
+                            {% else %}
+                            <a href="{{ site.url }}/author/#{{ page.author }}">{{ page.author }}</a>
+                            {% endif %}
+                        </h4>
+                    </section>
+                </section>
+            </footer>
+            {% endif %}
+        </article>
+    </div> <!-- end inner-->
+</main>
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright">
+                    <b style="font-size: 14px; font-weight: 400">Fathoni17 &copy; 2017</b><br />
+                    <i style="font-size: 9px;">Theme by <a href="http://ghost.org" target="_blank">Ghost</a></i>
+                </section>
+                <nav class="site-footer-nav" style="font-size: 25px; line-height: 25px;">
+                    {% if site.instagram %}
+                        <a class="social-btn-link" href="http://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-instagram"></i></a>
+                    {% endif %}
+                    {% if site.linkedin %}
+                        <a class="social-btn-link" href="http://linkedin.com/in/{{ site.linkedin }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-linkedin-square"></i></a>
+                    {% endif %}
+                    {% if site.github-url %}
+                        <a class="social-btn-link" href="http://github.com/{{ site.github-url }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-github"></i></a>
+                    {% endif %}
+                    {% if site.facebook %}
+                        <a class="social-btn-link" href="http://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener noreferrer"><i class="fa fa-fw fa-facebook-square"></i></a>
+                    {% endif %}
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <dv>
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+{% include scripts.html %}
+{% if site.mathjax == true %}
+<!-- MathJax -->
+<script async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}
+
+</body>
+</html>

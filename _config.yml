@@ -1,0 +1,82 @@
+# Site
+title:              Fathoni17
+bio:                'Tulisan Singkat Tentang Saya'
+description:        "Laman pribadi untuk berbagi"
+fullname:           "MUHAMMAD FATHONI N."
+
+reading_time:       false
+words_per_minute:   200
+logo:               'assets/img/pinned-octocat.svg'
+owner:              'assets/img/author/Fathoni'
+background:         '' # 'assets/img/wallpaper.jpg'
+tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
+locale:             en_US
+url:                https://fathoni17.github.io
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:year/:month/:title/
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:title/
+
+#paginate: 4
+#pagination: 
+#  enabled: true  
+#  per_page: 4
+#  collection: 'projects'
+#  sort_reverse: true
+#  trail: 
+#    before: 2
+#    after: 2
+
+# Jekyll
+#permalink:          :year/:month/:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Comments
+disqus_shortname:   Fathoni17
+
+# Social
+# if you don't have any of social below, comment the line.
+#google:
+  #plus:            #username
+  #analytics:
+  #verify:
+  #ad-client:
+  #ad-slot:
+email:              mfathonin@gmail.com
+github-url:         fathoni17
+#stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+linkedin:           fathoni17
+instagram:          mfathonin
+facebook:           fathoni17
+#twitter:            fathoni17
+#youtube:           username
+#youtube-channel:   channel
+
+# Gems
+plugins:
+  - jekyll-paginate
+  - jekyll-mentions
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-gist
+
+jekyll-mentions:
+    base_url: https://fathoni17.github.io
+
+# Exclude list
+exclude: [README.md, Installation.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]

@@ -1,0 +1,251 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"><!--<![endif]-->
+<head>
+    {% include head.html %}
+    <style type="text/css">
+        h1{
+            margin: 0.67em 0 -12pt 0;
+            font-size: 2.1em;
+        }
+        h6{
+            font-size: 12pt;
+            margin: 0;
+        }
+        .wrapper{
+            padding: 0;
+        }
+        .content{
+            padding: 0;
+        }
+        .content .leftside{
+            width: 31%; 
+            background-color: #dddddd;
+            padding: 2%;
+            display: inline-block;
+            text-align: -webkit-center;
+        }
+        .content .main_cv{
+            width: 67%;
+            padding: 1.5% 2%;
+            display: inline-block;
+        }
+        .data{
+            margin: 30px 0 0 0;
+            text-align: left;
+        }
+        .data h4{
+            margin-bottom: 5px;
+        }
+        .data p{
+            margin: 3px 0 0 1px;
+            padding: 0;
+            font-size: 11pt;
+        }
+        .data li{
+            margin-left: 10px;
+            font-size: 11pt;
+        }
+        .data a{
+            color: #383838;
+        }
+        .data a:hover{
+            color: rgb(77, 169, 255);
+        }
+        .data.contact .fa{
+            width: 14%;
+            position: relative;
+            top: 9px;
+            vertical-align: top;
+        }
+        .data.contact p{
+            display: inline-block;
+            width: 85%;
+        }
+        .data.achievements p{
+            font-size: 12pt;
+            margin: 0 0 -5pt 0;
+        }
+        .data.achievements .list{
+            display: inline-block;
+            width: 45%;
+            margin: 1% 1%;
+        }
+        .fotoborder{
+            border: 5px solid #fff;
+            overflow: hidden;
+            width: 85%;
+            height: 85%;
+            border-radius: 50%;
+            margin: 30px 0 0 0;
+        }
+        .foto{
+            background-color: #ffffff;
+            margin: 0;
+            transition: all 0.5s;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+        }
+        .foto:hover{
+            transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            -webkit-transform: scale(1.3);
+        }
+        .data.profile p{
+            text-indent: 2%;
+            padding: 0 2%;
+            text-align: justify;
+            font-style: italic;
+        }
+        .data.education div{
+            margin: 0;
+        }
+        .data.education .spataror{
+            display: inline-block;
+            font-size: 17pt;
+            margin: 2% 1%;
+            vertical-align: top;
+        }
+        .list.year{
+            font-size: 15pt;
+            width: 10%;
+            display: inline-block;
+            vertical-align: top;
+            line-height: 100%;
+            padding-top: 2.25%;
+            padding-left: 2%;
+        }
+        .list.education{
+            display: inline-block;
+        }
+        .data p.education_data{
+            font-size: 10pt;
+            font-style: italic;
+            color: #222222;
+            margin: 0 0 -5pt 0;
+        }
+        .data p.education_data.main{
+            font-size: 11pt;
+            font-style: normal;
+            color: #000000;
+            margin: 5pt 0 -3pt 0;
+        }
+        .data.skill{
+            color: black;
+        }
+        .data.skill .list.line{
+            font-size: 12pt;
+            width: 100%;
+        }
+        .data.skill .list.line .skill_name{
+            width: 18%;
+            padding-left: 1%;
+            display: inline-block;
+            font-size: 12pt;
+        }
+        .data.skill .list.line .skill_bar{
+            width: 25%;
+            margin-right: 5%;
+            height: 20px;
+            border-radius: 10px;
+            vertical-align: middle;
+            position: relative;
+            color: bisque;
+            display: inline-block;
+            background-color: #999999;
+        }
+        .data.skill .list.line .skill_bar .value{
+            background-color: #222222;
+            color: #dddddd;
+            text-align: center;
+            font-size: 8pt;
+            line-height: 21px;
+            height: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+    <center>
+        <div class="wrapper animated fadeIn">
+            <div class="content">
+                <div class="leftside">
+                    <div class="fotoborder">
+                        <img class="data foto" src="{{ site.url }}/{{ site.owner }}"></img>
+                    </div>
+                    {% for item in page.items offset: 0 limit: 4 %}
+                    <div class="data {{ item.name}}">
+                        <hr><h4>{{ item.name | upcase }}</h4>
+                        {% for data in item.data %}
+                            {% if item.name == "contact" %}
+                            <div><i class="{{ item.list[forloop.index0] }}"></i><p>{{ data }}</p></div>
+                            {% endif %}{% if item.name == "personal" %}
+                            <p><b>{{ item.list[forloop.index0] }}</b> - {{ data }}</p>
+                            {% endif %}{% if item.name == "interest" %}
+                            <li>{{ data }}</li>
+                            {% endif %}{% if item.name == "connect" %}
+                            <p><i><a href="http://{{ data }}" target="_blank"><i class="fa fa-fw fa-{{ item.list[forloop.index0] }}"></i> {{ data }}</a></i></p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="main_cv">
+                    <h1>{{ site.fullname }}</h1>
+                    <h6>Electrical Engineer Student</h6>
+                    {% for item in page.items offset: 4 limit: 4 %}
+                    <div class="data {{ item.name }}">
+                        <hr><h4>{{ item.name | upcase }}</h4>
+                        {% for data in item.data %}
+                            {% assign x = forloop.index0 %}
+                            {% if item.name == "profile" %}
+                                <p>{{ data }}</p>
+                            {% endif %}{% if item.name == "education" %}
+                            <span style="display: block;">
+                                <div class="list year">{{item.list[forloop.index0]}}</div>
+                                <i class="spataror fa fa-fw fa-chevron-circle-right"></i>
+                                <div class="list education">
+                                    <p class="education_data main"><b>{{ data }}</b></p>
+                                    <p class="education_data">{{item.etc1[x]}} - {{item.etc2[x]}}</p>
+                                </div>
+                            </span>
+                            {% endif %}{% if item.name == "achievements" %}
+                                <div class="list">
+                                <p><b>{{data}}</b></p>
+                                <p style="border-top: 1px solid #222222;">{{item.etc1[x]}}</p>
+                                <p>{{item.etc2[x]}}</p>
+                                {% unless item.etc3 == empty %}
+                                    <p><i>{{item.etc3[x] }}</i></p>
+                                {%endunless%}
+                                </div>
+                            {% endif %} {% if item.name == "skill" %}
+                                <div class="list line">
+                                    <div class="skill_name">{{ item.list[x][0] }}</div>
+                                    <div class="skill_bar">
+                                        <div class="value" style="width: {{ data[0] }}">{{data[0]}}</div>
+                                    </div>
+                                    <div class="skill_name">{{ item.list[x][1] }}</div>
+                                    <div class="skill_bar">
+                                        <div class="value" style="width: {{ data[1] }}">{{data[1]}}</div>
+                                    </div>
+                                </div>
+                            {%endif%}
+                        {%endfor%}
+                    </div>
+                    {%endfor%}    
+                </div>
+            </div>
+        </div>
+        </center>
+    </header>
+    {% include scripts.html %}
+</body>
+</html>
