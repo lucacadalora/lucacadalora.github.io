@@ -11,7 +11,7 @@ owner:              'assets/img/author/Fathoni'
 background:         '' # 'assets/img/wallpaper.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
 locale:             en_US
-url:                https://luca.github.io
+url:                https://lucacadalora.github.io
 
 #paginate: 4
 #pagination: 
@@ -68,7 +68,7 @@ plugins:
   - jekyll-gist
 
 jekyll-mentions:
-    base_url: https://luca.github.io
+    base_url: https://lucacadalora.github.io
 
 # Exclude list
 exclude: [README.md, Installation.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile]
