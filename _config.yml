@@ -1,8 +1,8 @@
 # Site
-title:              Lucacadalora
-bio:                'Tulisan Singkat Tentang Saya'
+title:              'Luca Cada Lora'
+bio:                'From science to dollar'
 description:        "Laman pribadi untuk berbagi"
-fullname:           "MUHAMMAD FATHONI N."
+fullname:           "Luca Cada Lora"
 
 reading_time:       false
 words_per_minute:   200
@@ -49,15 +49,15 @@ sass:
   #verify:
   #ad-client:
   #ad-slot:
-email:              mfathonin@gmail.com
-github-url:         fathoni17
+email:              mail@lucacadalora.id
+github-url:         lucacadalora
 #stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
-linkedin:           fathoni17
-instagram:          mfathonin
-facebook:           fathoni17
-#twitter:            fathoni17
-#youtube:           username
-#youtube-channel:   channel
+linkedin:           lucacadalora
+instagram:          lucacadl
+facebook:           lucacdl
+twitter:            lucaxyzz
+#youtube:           Luca Cada Lora
+#youtube-channel:  Luca Cada Lora
 
 # Gems
 plugins:
