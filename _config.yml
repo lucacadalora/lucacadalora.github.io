@@ -1,5 +1,5 @@
 # Site
-title:              Fathoni17
+title:              Lucacadalora
 bio:                'Tulisan Singkat Tentang Saya'
 description:        "Laman pribadi untuk berbagi"
 fullname:           "MUHAMMAD FATHONI N."
@@ -61,7 +61,6 @@ facebook:           fathoni17
 
 # Gems
 plugins:
-  - jekyll-paginate
   - jekyll-mentions
   - jekyll-feed
   - jekyll-sitemap
