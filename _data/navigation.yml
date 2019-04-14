@@ -4,11 +4,11 @@
   in_nav: false
 
 - title: Projects
-  url: /projects/
+  url: http://www.lucacadalora.id/
   in_nav: true
 
 - title: Blog
-  url: /blog/
+  url: http://www.lucacadalora.id/
   in_nav: true
   
 - title: Tentang Saya
