@@ -43,9 +43,9 @@ layout: compress
             padding: 0 2%;
         }
         .main_cv .bottom{
-            padding: 0 2%;
-            border-LEFT: 3px solid #585858;
-            margin-left: -3px; 
+            padding: 0 3.65%;
+            border-LEFT: 4px solid #999999;
+            margin-left: -4px; 
         }
         .data{
             margin: 30px 0 0 0;
@@ -79,7 +79,7 @@ layout: compress
             display: inline-block;
             width: 85%;
         }
-        .data p{
+        .data .list p{
             font-size: 12pt;
             margin: 0 0 -5pt 0;
         }
@@ -159,9 +159,9 @@ layout: compress
                     <div class="fotoborder">
                         <img class="data foto" src="{{ site.url }}/{{ site.owner }}"></img>
                     </div><hr>
-                    {% for item in page.items offset: 1 limit: 5 %}
+                    {% for item in page.items offset: 1 limit: 6 %}
                     <div class="data {{ item.name}}">
-                        <h4><center style="background: #74dee6; color: #ffffff">{{ item.name | upcase }}</center></h4>
+                        <h4><center style="background: #d3fcff; color: #777777">{{ item.name | upcase }}</center></h4>
                         {% for data in item.data %}
                             {% if item.name == "profile" %}
                             <p><b>{{ item.list[forloop.index0] }}</b> - {{ data }}</p>
@@ -169,6 +169,11 @@ layout: compress
                             <li>{{ data }}</li>
                             {% endif %}{% if item.name == "interest" %}
                             <li>{{ data }}</li>
+                            {% endif %}{% if item.name == "education" %}
+                            <p style="margin-left:10px; font-size:17px;"><b>{{ data }}</b></p>
+                            <p style="margin: -2px 0 0 10px; font-size:12px;"><u>{{ item.etc1 }}</u></p>
+                            <p style="margin: -2px 0 0 10px; font-size:12px;">{{ item.etc2 }}</p>
+                            <p style="margin: -2px 0 0 10px; font-size:12px;"><i>{{ item.etc3 }}</i></p>
                             {% endif %}{% if item.name == "contact" %}
                             <div><i class="{{ item.list[forloop.index0] }}"></i><p>{{ data }}</p></div>
                             {% endif %}{% if item.name == "social" %}
@@ -180,32 +185,44 @@ layout: compress
                 </div>
                 <div class="main_cv">
                     <div class="top">
-                        <u style="font-size:27pt"><strong>Luca</strong> Cada Lora</u>
-                        <p style="font-size:11pt; margin-top: 0">{{ page.items[0].data }}</p>
+                        <center>
+                            <u style="font-size:27pt; color: #777777"><strong>Luca</strong> Cada Lora</u>
+                            <p style="font-size:11pt; margin-top: 0">{{ page.items[0].data }}</p>
+                        </center>
                     </div>
                     <div class="bottom">
-                        {% for item in page.items offset: 6 limit: 5 %}
                         <div class="data {{ item.name }}">
-                            <hr><h4><center style="background: #74dee6; color: #ffffff">{{ item.name | upcase }}</center></h4>
+                            <hr><h4><center style="background: #d3fcff; color: #777777; margin-top: 30px;">{{ page.items[7].name | upcase }}</center></h4>
+                            {% for data in page.items[7].data %}
+                            {% assign x = forloop.index0 %}
+                            <span style="display: block;">
+                                <div class="list experiences">
+                                    <p class="experiences_data main" style="margin-top:10px; border-bottom: 1px solid #585858; margin-bottom: 5px;"><b>{{ data }}</b></p>
+                                    <p style="font-size: 9pt; margin-top:0;" class="experiences_data"><i>{{page.items[7].etc2[x]}}</i></p>
+                                    <p style="line-height: 20px; margin-top: 10px;" class="experiences_data">{{ page.items[7].etc1[x]}}</p>
+                                    {% unless page.items[7].etc3[x] == empty %}
+                                    <ul style="padding-left:20px; margin-bottom: 0px;">
+                                        {% for desc in page.items[7].etc3[x] %}
+                                        <li style="font-size: 11pt; margin-top:0;"><i>{{ desc }}</i></li>
+                                        {% endfor %}
+                                    </ul>
+                                    {%endunless%}
+                                </div>
+                            </span>
+                            {%endfor%}
+                        </div>
+                        {% for item in page.items offset: 8 limit: 5 %}
+                        <div class="data {{ item.name }}">
+                            <h4><center style="background: #d3fcff; color: #777777">{{ item.name | upcase }}</center></h4>
                             {% for data in item.data %}
                                 {% assign x = forloop.index0 %}
-                                {% if item.name == "education" %}
-                                <span style="display: block;">
-                                    <div class="list year">{{item.list[forloop.index0]}}</div>
-                                    <i class="spataror fa fa-fw fa-chevron-circle-right"></i>
-                                    <div class="list education">
-                                        <p class="education_data main"><b>{{ data }}</b></p>
-                                        <p class="education_data">{{item.etc1[x]}} - {{item.etc2[x]}}</p>
-                                    </div>
-                                </span>
-                                {% endif %}
                                     <div class="list">
-                                    <p style="margin-top:10;"><b><i>{{data}}</i></b></p>
+                                    <p style="margin-top:10px; border-bottom: 1px solid #585858; margin-bottom: 5px;"><b>{{data}}</b></p>
                                     {% unless item.etc1 == empty %}
                                     <p style="margin-top: 0;">{{item.etc1[x]}}</p>
                                     {%endunless%}
                                     {% unless item.etc2 == empty %}
-                                    <p><i>{{item.etc2[x]}}</i></p>
+                                    <p style="font-size:10pt"><i>{{item.etc2[x]}}</i></p>
                                     {%endunless%}
                                     {% unless item.etc3 == empty %}
                                         <p style="font-size: 9pt; margin-top:0;"><i>{{item.etc3[x] }}</i></p>
