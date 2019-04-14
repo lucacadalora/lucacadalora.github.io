@@ -25,7 +25,7 @@ layout: compress
         }
         .content .leftside{
             width: 31%; 
-            background-color: #dddddd;
+            background-color: #ffffff;
             padding: 2%;
             display: inline-block;
             text-align: -webkit-center;
@@ -185,12 +185,12 @@ layout: compress
                     <div class="data {{ item.name}}">
                         <hr><h4>{{ item.name | upcase }}</h4>
                         {% for data in item.data %}
-                            {% if item.name == "contact" %}
-                            <div><i class="{{ item.list[forloop.index0] }}"></i><p>{{ data }}</p></div>
-                            {% endif %}{% if item.name == "personal" %}
+                            {% if item.name == "personal" %}
                             <p><b>{{ item.list[forloop.index0] }}</b> - {{ data }}</p>
                             {% endif %}{% if item.name == "interest" %}
                             <li>{{ data }}</li>
+                            {% endif %}{% if item.name == "contact" %}
+                            <div><i class="{{ item.list[forloop.index0] }}"></i><p>{{ data }}</p></div>
                             {% endif %}{% if item.name == "connect" %}
                             <p><i><a href="http://{{ data }}" target="_blank"><i class="fa fa-fw fa-{{ item.list[forloop.index0] }}"></i> {{ data }}</a></i></p>
                             {% endif %}
