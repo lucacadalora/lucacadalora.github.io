@@ -19,6 +19,7 @@ layout: compress
         }
         .wrapper{
             padding: 0;
+            max-width: 950px;
         }
         .content{
             padding: 0;
@@ -29,11 +30,14 @@ layout: compress
             padding: 2%;
             display: inline-block;
             text-align: -webkit-center;
+            vertical-align: top;
         }
         .content .main_cv{
             width: 67%;
             padding: 1.5% 2%;
             display: inline-block;
+            vertical-align: top;
+            margin-top: 50px;
         }
         .data{
             margin: 30px 0 0 0;
@@ -67,13 +71,12 @@ layout: compress
             display: inline-block;
             width: 85%;
         }
-        .data.achievements p{
+        .data p{
             font-size: 12pt;
             margin: 0 0 -5pt 0;
         }
-        .data.achievements .list{
+        .data .list{
             display: inline-block;
-            width: 45%;
             margin: 1% 1%;
         }
         .fotoborder{
@@ -87,7 +90,6 @@ layout: compress
             background-color: #ffffff;
             margin: 0;
             transition: all 0.5s;
-            border-radius: 50%;
             -webkit-transition: all 0.5s;
             -moz-transition: all 0.5s;
         }
@@ -135,39 +137,7 @@ layout: compress
             color: #000000;
             margin: 5pt 0 -3pt 0;
         }
-        .data.skill{
-            color: black;
-        }
-        .data.skill .list.line{
-            font-size: 12pt;
-            width: 100%;
-        }
-        .data.skill .list.line .skill_name{
-            width: 18%;
-            padding-left: 1%;
-            display: inline-block;
-            font-size: 12pt;
-        }
-        .data.skill .list.line .skill_bar{
-            width: 25%;
-            margin-right: 5%;
-            height: 20px;
-            border-radius: 10px;
-            vertical-align: middle;
-            position: relative;
-            color: bisque;
-            display: inline-block;
-            background-color: #999999;
-        }
-        .data.skill .list.line .skill_bar .value{
-            background-color: #222222;
-            color: #dddddd;
-            text-align: center;
-            font-size: 8pt;
-            line-height: 21px;
-            height: 100%;
-            border-radius: 10px;
-        }
+        
     </style>
 </head>
 <body>
@@ -181,12 +151,14 @@ layout: compress
                     <div class="fotoborder">
                         <img class="data foto" src="{{ site.url }}/{{ site.owner }}"></img>
                     </div><hr>
-                    {% for item in page.items offset: 1 limit: 4 %}
+                    {% for item in page.items offset: 1 limit: 5 %}
                     <div class="data {{ item.name}}">
                         <h4><center style="background: #74dee6; color: #ffffff">{{ item.name | upcase }}</center></h4>
                         {% for data in item.data %}
                             {% if item.name == "profile" %}
                             <p><b>{{ item.list[forloop.index0] }}</b> - {{ data }}</p>
+                            {% endif %}{% if item.name == "skill" %}
+                            <li>{{ data }}</li>
                             {% endif %}{% if item.name == "interest" %}
                             <li>{{ data }}</li>
                             {% endif %}{% if item.name == "contact" %}
@@ -201,7 +173,7 @@ layout: compress
                 <div class="main_cv">
                     <u style="font-size:27pt"><strong>Luca</strong> Cada Lora</u>
                     <p style="font-size:11pt; margin-top: 0">{{ page.items[0].data }}</p>
-                    {% for item in page.items offset: 5 limit: 3 %}
+                    {% for item in page.items offset: 6 limit: 5 %}
                     <div class="data {{ item.name }}">
                         <hr><h4><center style="background: #74dee6; color: #ffffff">{{ item.name | upcase }}</center></h4>
                         {% for data in item.data %}
@@ -215,27 +187,20 @@ layout: compress
                                     <p class="education_data">{{item.etc1[x]}} - {{item.etc2[x]}}</p>
                                 </div>
                             </span>
-                            {% endif %}{% if item.name == "achievements" %}
+                            {% endif %}
                                 <div class="list">
-                                <p><b>{{data}}</b></p>
-                                <p style="border-top: 1px solid #222222;">{{item.etc1[x]}}</p>
-                                <p>{{item.etc2[x]}}</p>
+                                <p style="margin-top:10;"><b><i>{{data}}</i></b></p>
+                                {% unless item.etc1 == empty %}
+                                <p style="margin-top: 0;">{{item.etc1[x]}}</p>
+                                {%endunless%}
+                                {% unless item.etc2 == empty %}
+                                <p><i>{{item.etc2[x]}}</i></p>
+                                {%endunless%}
                                 {% unless item.etc3 == empty %}
-                                    <p><i>{{item.etc3[x] }}</i></p>
+                                    <p style="font-size: 9pt; margin-top:0;"><i>{{item.etc3[x] }}</i></p>
                                 {%endunless%}
                                 </div>
-                            {% endif %} {% if item.name == "skill" %}
-                                <div class="list line">
-                                    <div class="skill_name">{{ item.list[x][0] }}</div>
-                                    <div class="skill_bar">
-                                        <div class="value" style="width: {{ data[0] }}">{{data[0]}}</div>
-                                    </div>
-                                    <div class="skill_name">{{ item.list[x][1] }}</div>
-                                    <div class="skill_bar">
-                                        <div class="value" style="width: {{ data[1] }}">{{data[1]}}</div>
-                                    </div>
-                                </div>
-                            {%endif%}
+                            
                         {%endfor%}
                     </div>
                     {%endfor%}    
